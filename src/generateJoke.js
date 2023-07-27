@@ -1,5 +1,12 @@
-function generateJoke() {
-  return 'This is a joke. Ha ha ha. I am so funny. Ha ha ha.'
+import axios from 'axios'
+
+async function generateJoke() {
+  const res = await axios.get('https://icanhazdadjoke.com/', {
+    headers: {
+      Accept: 'application/json',
+    },
+  })
+  return res.data.joke
 }
 
 export default generateJoke
